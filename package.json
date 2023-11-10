@@ -1,8 +1,11 @@
 {
-  "name": "backend",
+  "name": "node-tds-2023-alunos",
   "version": "1.0.0",
-  "description": "Projeto de estudo nodejs",
+  "description": "Projeto de ensino para o curso técnico em Desenvolvimento de Sistemas SENAI - Valinhos",
   "main": "src/server.js",
+  "repository": "https://github.com/FelipeSantos92Dev/node-tds-2023-instrutor",
+  "author": "Felipe Santos <dev.felipesantos@gmail.com>",
+  "private": false,
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,8 +15,6 @@
     "nodejs",
     "javascript"
   ],
-  "author": "Felipe Santos",
-  "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
