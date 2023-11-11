@@ -1,5 +1,7 @@
 # Projeto Inicial NodeJS
 
+[![Capa do Projeto](https://i.imgur.com/E8YvzaC.png)](https://github.com/FelipeSantos92Dev/node-tds-2023-alunos)
+
 ## Descrição
 
 Este projeto é um projeto inicial para NodeJS.
