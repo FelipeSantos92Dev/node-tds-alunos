@@ -30,11 +30,12 @@ Para executar este projeto é necessário ter instalado:
 
 1. Criar o arquivo `package.json` com o comando `npm init -y`
 2. Criar o arquivo `.gitignore`
-3. Instalar o Express com o comando `npm install express`
-4. Instalar o Nodemon com o comando `npm install nodemon`
-5. Instalar o dotenv com o comando `npm install dotenv`
-6. Criação do arquivo `.env` com a variável `PORT=5000`
-7. Criar o arquivo `server.js` com o código abaixo:
+3. Vincular o projeto ao repositório no Github
+4. Instalar o Express com o comando `npm install express`
+5. Instalar o Nodemon com o comando `npm install nodemon`
+6. Instalar o dotenv com o comando `npm install dotenv`
+7. Criação do arquivo `.env` com a variável `PORT=5000`
+8. Criar o arquivo `server.js` com o código abaixo:
 
 ```javascript
 import express from "express";
@@ -56,9 +57,9 @@ app.listen(port, () =>
 );
 ```
 
-8. Adicionar o script `dev` no arquivo `package.json` com o comando `nodemon src/server.js`
-9. Adicionar a informação `type: module` no arquivo `package.json`
-10. Executar o comando `npm run dev` para iniciar o projeto
+9. Adicionar o script `dev` no arquivo `package.json` com o comando `nodemon src/server.js`
+10. Adicionar a informação `"type": "module"` no arquivo `package.json`
+11. Executar o comando `npm run dev` para iniciar o projeto
 
 ## Instalação
 
@@ -83,3 +84,4 @@ MIT License
 - [Express](https://expressjs.com/)
 - [Nodemon](https://nodemon.io/)
 - [Git](https://git-scm.com/)
+- [Github](https://github.com/FelipeSantos92Dev/node-tds-2023-alunos)
