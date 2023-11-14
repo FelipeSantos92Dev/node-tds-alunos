@@ -13,7 +13,7 @@ export const getStudents = (req, res) => {
 
 export const getStudent = (req, res) => {
   const { id } = req.params;
-  const student = studentsList.getStudent(id);
+  const student = studentsList.getStudentById(id);
 
   if (!student) res.status(404).send({ message: "Estudante não encontrado!" });
 
@@ -33,7 +33,7 @@ export const updateStudent = (req, res) => {
   const { id } = req.params;
   const { name, age } = req.body;
 
-  const student = studentsList.getStudent(id);
+  const student = studentsList.getStudentById(id);
 
   if (!student) res.status(404).send({ message: "Estudante não encontrado!" });
 
@@ -44,7 +44,7 @@ export const updateStudent = (req, res) => {
 
 export const deleteStudent = (req, res) => {
   const { id } = req.params;
-  const student = studentsList.getStudent(id);
+  const student = studentsList.getStudentById(id);
 
   if (!student) res.status(404).send({ message: "Estudante não encontrado!" });
 

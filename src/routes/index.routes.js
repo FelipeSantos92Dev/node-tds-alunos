@@ -1,10 +1,12 @@
 import { Router } from "express";
-import { usersRouter } from "./users.routes.js";
-import { studentsRouter } from "./students.routes.js";
+import studentsRouter from "./students.routes.js";
 
 const router = Router();
 
-router.use("/users", usersRouter);
+router.get("/", (req, res) => {
+  res.status(200).send({ message: "Servidor rodando perfeitamente!" });
+});
+
 router.use("/students", studentsRouter);
 
 export { router };
