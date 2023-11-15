@@ -1,10 +1,10 @@
-import { StudentsList } from "../models/students/StudentsList.js";
+import { StudentsRepository } from "../models/students/StudentsRepository.js";
 import { Student } from "../models/students/Student.js";
 
-const studentsList = new StudentsList();
+const studentsRepository = new StudentsRepository();
 
 export const getStudents = (req, res) => {
-  const students = studentsList.getStudents();
+  const students = studentsRepository.getStudents();
   if (students.length) {
     return res.status(200).json(students);
   }
@@ -13,7 +13,7 @@ export const getStudents = (req, res) => {
 
 export const getStudent = (req, res) => {
   const { id } = req.params;
-  const student = studentsList.getStudentById(id);
+  const student = studentsRepository.getStudentById(id);
 
   if (!student) res.status(404).send({ message: "Estudante não encontrado!" });
 
@@ -24,7 +24,7 @@ export const createStudent = (req, res) => {
   const { name, age } = req.body;
   const student = new Student(name, age);
 
-  studentsList.addStudent(student);
+  studentsRepository.addStudent(student);
 
   return res.status(201).send(student);
 };
@@ -33,22 +33,22 @@ export const updateStudent = (req, res) => {
   const { id } = req.params;
   const { name, age } = req.body;
 
-  const student = studentsList.getStudentById(id);
+  const student = studentsRepository.getStudentById(id);
 
   if (!student) res.status(404).send({ message: "Estudante não encontrado!" });
 
-  studentsList.updateStudent(id, name, age);
+  studentsRepository.updateStudent(id, name, age);
 
   return res.send(student);
 };
 
 export const deleteStudent = (req, res) => {
   const { id } = req.params;
-  const student = studentsList.getStudentById(id);
+  const student = studentsRepository.getStudentById(id);
 
   if (!student) res.status(404).send({ message: "Estudante não encontrado!" });
 
-  studentsList.deleteStudent(id);
+  studentsRepository.deleteStudent(id);
 
   return res.send(student);
 };

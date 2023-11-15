@@ -1,4 +1,4 @@
-export class StudentsList {
+export class StudentsRepository {
   constructor() {
     this.students = [];
   }

@@ -12,6 +12,11 @@ export default class UsersRepository {
     return user;
   }
 
+  getUserByEmail(email) {
+    const user = this.users.find((user) => user.email === email);
+    return user;
+  }
+
   createUser(user) {
     this.users.push(user);
     return user;
