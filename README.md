@@ -4,7 +4,8 @@
 
 ## Descrição
 
-Este projeto é um projeto inicial para NodeJS.
+Este projeto é uma estrutura inicial para o desenvolvimento em NodeJS, configurada com Express, Nodemon e dotenv.
+O objetivo principal é fornecer uma base sólida para a criação de APIs NodeJS.
 
 ## Tecnologias
 
@@ -17,7 +18,8 @@ Este projeto é um projeto inicial para NodeJS.
 
 ## Objetivo
 
-O objetivo deste projeto é criar um projeto inicial para NodeJS.
+O objetivo desta estrutura é oferecer uma configuração inicial robusta para projetos NodeJS, facilitando o desenvolvimento
+e proporcionando uma base sólida para a construção de aplicativos mais complexos.
 
 ## Pré-requisitos
 
@@ -154,7 +156,3 @@ MIT License
 - [Nodemon](https://nodemon.io/)
 - [Git](https://git-scm.com/)
 - [Github](https://github.com/FelipeSantos92Dev/node-tds-2023-alunos)
-
-```
-
-```
