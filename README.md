@@ -71,6 +71,137 @@ app.listen(port, () =>
 
 Após a execução dos passos acima, o projeto estará pronto para ser utilizado e você poderá avançar para a próxima etapa.
 
+## Criação dos arquivos de modelos
+
+1. Criar a pasta `models` e o arquivo `Aluno.js` dentro dela com o código abaixo:
+
+```javascript
+class Aluno {
+  constructor(nome, idade, curso) {
+    this.id = this.gerarId();
+    this.nome = nome;
+    this.idade = idade;
+    this.curso = curso;
+  }
+
+  gerarId() {
+    return Math.floor(Math.random() * 1000);
+  }
+}
+
+export default Aluno;
+```
+
+2. Criar a pasta `repositories` e o arquivo `AlunoRepository.js` dentro dela com o código abaixo:
+
+```javascript
+class AlunoRepository {
+  constructor() {
+    this.alunos = [];
+  }
+
+  cadastrar(aluno) {
+    this.alunos.push(aluno);
+  }
+
+  listar() {
+    return this.alunos;
+  }
+
+  buscarPorId(id) {
+    return this.alunos.find((aluno) => aluno.id === id);
+  }
+
+  alterar(id, nome, idade, curso) {
+    const aluno = this.buscarPorId(id);
+
+    if (aluno) {
+      aluno.nome = nome;
+      aluno.idade = idade;
+      aluno.curso = curso;
+    }
+
+    return aluno;
+  }
+
+  excluir(id) {
+    const aluno = this.buscarPorId(id);
+
+    if (aluno) {
+      this.alunos = this.alunos.filter((aluno) => aluno.id !== id);
+    }
+  }
+}
+
+export default AlunoRepository;
+```
+
+## Criação dos arquivos de controllers
+
+1. Criar a pasta `controllers` e o arquivo `aluno.controller.js` dentro dela com o código abaixo:
+
+```javascript
+import AlunoRepository from "../repositories/AlunoRepository.js";
+import Aluno from "../models/Aluno.js";
+
+const alunoRepository = new AlunoRepository();
+
+export const cadastrar(req, res) => {
+    const { nome, idade, curso } = req.body;
+
+    const aluno = new Aluno(nome, idade, curso);
+
+    alunoRepository.cadastrar(aluno);
+
+    return res.status(201).send(aluno);
+  }
+
+export const listar(req, res) => {
+    const alunos = alunoRepository.listar();
+
+    return res.status(200).send(alunos);
+  }
+
+export const buscarPorId(req, res) => {
+    const { id } = req.params;
+
+    const aluno = alunoRepository.buscarPorId(Number(id));
+
+    if (!aluno) {
+      return res.status(404).send({ message: "Aluno não encontrado!" });
+    }
+
+    return res.status(200).send(aluno);
+  }
+
+export const alterar(req, res) => {
+    const { id } = req.params;
+    const { nome, idade, curso } = req.body;
+
+    const aluno = alunoRepository.alterar(Number(id), nome, idade, curso);
+
+    if (!aluno) {
+      return res.status(404).send({ message: "Aluno não encontrado!" });
+    }
+
+    return res.status(200).send(aluno);
+  }
+
+export const excluir(req, res) => {
+    const { id } = req.params;
+
+    const aluno = alunoRepository.buscarPorId(Number(id));
+
+    if (!aluno) {
+      return res.status(404).send({ message: "Aluno não encontrado!" });
+    }
+
+    alunoRepository.excluir(Number(id));
+
+    return res.status(204).send(aluno);
+  }
+```
+
 ## Criação dos arquivo de rotas
 
 1. Criar a pasta `routes` e o arquivo `alunos.router.js` dentro dela com o código abaixo:
@@ -78,12 +209,22 @@ Após a execução dos passos acima, o projeto estará pronto para ser utilizado
 ```javascript
 import { Router } from "express"; // O Router serve para criar as rotas
 
+import {
+  cadastrar,
+  listar,
+  buscarPorId,
+  alterar,
+  excluir,
+} from "../controllers/aluno.controller.js"; // Importa os controllers
+
 const alunosRouter = Router(); // Cria o roteador do express
 
-// Configura o roteador para responder a requisições na rota /alunos
-alunosRouter.get("/", (req, res) => {
-  return res.status(200).send({ message: "Hello World!" });
-});
+// Configura o roteador para responder a requisições na rota /
+alunosRouter.post("/", cadastrar);
+alunosRouter.get("/", listar);
+alunosRouter.get("/:id", buscarPorId);
+alunosRouter.put("/:id", alterar);
+alunosRouter.delete("/:id", excluir);
 
 export default alunosRouter; // Exporta o roteador
 ```
@@ -122,7 +263,7 @@ const port = process.env.PORT || 5000; // Pega a porta do arquivo .env ou usa a 
 
 const app = express(); // Cria o servidor e armazena na variável app
 app.use(express.json()); // Configura o servidor para receber requisições com o formato JSON
-app.use(router); // Configura o servidor para usar o roteador
+app.use(indexRouter); // Configura o servidor para usar o roteador
 
 // Inicia o servidor na porta configurada
 app.listen(port, () =>
