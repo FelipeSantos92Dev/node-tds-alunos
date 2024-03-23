@@ -4,8 +4,11 @@
 
 ## Descrição
 
-Este projeto é uma estrutura inicial para o desenvolvimento em NodeJS, configurada com Express, Nodemon e dotenv.
-O objetivo principal é fornecer uma base sólida para a criação de APIs NodeJS.
+Ponto de partida para desenvolvimento em NodeJS, integrando Express, Nodemon e dotenv para otimizar a produtividade e permitir que desenvolvedores foquem na lógica do aplicativo.
+
+## Objetivo
+
+Encorajar boas práticas e fornecer uma base que promova a escalabilidade e manutenção, inspirando a criação de funcionalidades inovadoras e soluções para desafios complexos no ecossistema NodeJS.
 
 ## Tecnologias
 
@@ -14,12 +17,6 @@ O objetivo principal é fornecer uma base sólida para a criação de APIs NodeJ
 - Express
 - Nodemon
 - Git
-- Github
-
-## Objetivo
-
-O objetivo desta estrutura é oferecer uma configuração inicial robusta para projetos NodeJS, facilitando o desenvolvimento
-e proporcionando uma base sólida para a construção de aplicativos mais complexos.
 
 ## Pré-requisitos
 
@@ -281,10 +278,6 @@ Para instalar o projeto, siga os passos abaixo:
 2. Execute o comando `npm install` para instalar as dependências do projeto
 3. Execute o comando `npm start` para iniciar o projeto
 
-## Licença
-
-MIT License
-
 ## Autor
 
 [Felipe Santos](https://github.com/FelipeSantos92Dev)
@@ -296,4 +289,3 @@ MIT License
 - [Express](https://expressjs.com/)
 - [Nodemon](https://nodemon.io/)
 - [Git](https://git-scm.com/)
-- [Github](https://github.com/FelipeSantos92Dev/node-tds-2023-alunos)
