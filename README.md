@@ -1,7 +1,5 @@
 # Projeto Inicial NodeJS
 
-[![Capa do Projeto](https://i.imgur.com/E8YvzaC.png)](https://github.com/FelipeSantos92Dev/node-tds-2023-alunos)
-
 ## Descrição
 
 Ponto de partida para desenvolvimento em NodeJS, integrando Express, Nodemon e dotenv para otimizar a produtividade e permitir que desenvolvedores foquem na lógica do aplicativo.

@@ -44,7 +44,7 @@ export const createUser = async (req, res) => {
   return res.status(201).send({ message: "Usuário criado com sucesso", user });
 };
 
-export const updateUser = (req, res) => {
+export const updateUser = async (req, res) => {
   const { id } = req.params;
   const { name, email, password } = req.body;
 
@@ -59,7 +59,9 @@ export const updateUser = (req, res) => {
     return res.status(409).send({ message: "Email já cadastrado" });
   }
 
-  const user = usersRepository.updateUser(id, name, email, password);
+  const passwordHash = await hash(password, 8);
+
+  const user = usersRepository.updateUser(id, name, email, passwordHash);
 
   return res
     .status(200)
