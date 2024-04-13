@@ -274,7 +274,7 @@ Para instalar o projeto, siga os passos abaixo:
 
 1. Clone o projeto para sua máquina
 2. Execute o comando `npm install` para instalar as dependências do projeto
-3. Execute o comando `npm start` para iniciar o projeto
+3. Execute o comando `npm run dev` para iniciar o projeto
 
 ## Autor
 
